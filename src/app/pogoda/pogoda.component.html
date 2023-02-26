@@ -1,0 +1,32 @@
+<div *ngIf="!daneZaladowane">
+    Trwa pobieranie danych...
+</div>
+
+<table *ngIf="daneZaladowane">
+    <tr>
+        <th>Miasto</th>
+        <th>Temperatura</th>
+        <th>Zachmurzenie</th>
+    </tr>
+    <tr *ngFor="let element of danePogodowe">
+        <td>{{element.miasto}}</td>
+        <td>{{element.temperatura}}</td>
+        <td>
+            <!--
+            <span *ngIf="element.zachmurzenie == 0">
+                Brak
+            </span>
+            <span *ngIf="element.zachmurzenie == 1">
+                Male
+            </span>
+            <span *ngIf="element.zachmurzenie == 2 || element.zachmurzenie == 3">
+                umiarkowane
+            </span>
+            <span *ngIf="element.zachmurzenie == 4">
+                Calkowite
+            </span>
+            -->
+            {{ konwertujZachmurzenie(element.zachmurzenie) }}
+        </td>
+    </tr>    
+</table>
