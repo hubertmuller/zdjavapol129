@@ -1,1 +1,28 @@
-<p>formularz works!</p>
+<pre>
+{{ forma.value | json}}
+</pre>
+
+<form [formGroup]="forma">
+    <label for="imieid">Imie</label>
+    <input id="imieid" type="text" formControlName="imie">
+    <label for="nazwiskoid">Nazwisko</label>
+    <input id="nazwiskoid" type="text" formControlName="nazwisko">
+    <div *ngIf="forma.controls.nazwisko.errors">
+        <div *ngIf="forma.controls.nazwisko.errors['minlength']">
+            nazwisko ma 
+            {{forma.controls.nazwisko.errors['minlength'].actualLength}}
+            znakow a minimalnie musi miec
+            {{forma.controls.nazwisko.errors['minlength'].requiredLength}}
+            znakow
+        </div>
+        <div *ngIf="forma.controls.nazwisko.errors['maxlength']">
+            nazwisko ma 
+            {{forma.controls.nazwisko.errors['maxlength'].actualLength}}
+            znakow a maksymalnie moze miec
+            {{forma.controls.nazwisko.errors['maxlength'].requiredLength}}
+            znakow
+        </div>
+    </div>
+</form>
+
+<input type="button" (click)="zmienNazwisko()" value="Zmien Nazwisko">

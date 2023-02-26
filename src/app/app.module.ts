@@ -9,6 +9,7 @@ import { NaglowekComponent } from './naglowek/naglowek.component';
 import { PogodaComponent } from './pogoda/pogoda.component';
 import { FormularzComponent } from './formularz/formularz.component';
 import { NawigacjaComponent } from './nawigacja/nawigacja.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NawigacjaComponent } from './nawigacja/nawigacja.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
