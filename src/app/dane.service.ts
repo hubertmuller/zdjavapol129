@@ -29,7 +29,7 @@ export class DaneService {
 
   zapiszFormularz(wpis: Wpis):Observable<any> {
     return this.http.post<any>(
-      'https://63fb474f4e024687bf75732b.mockapi.io/api/formularz',
+      'https://63fb474f4e024687bf75732b.mockapi.io/api/pogoda/formularz',
       wpis);
   }
 
