@@ -33,8 +33,8 @@ export class FormularzComponent implements OnInit, OnDestroy {
       herbata: new FormControl(false, {validators: [], updateOn: "change"}),
       cola: new FormControl(false, {validators: [], updateOn: "change"}),
       kakao: new FormControl(false, {validators: [], updateOn: "change"})
-    }
-    )
+    }),
+    komentarze: new FormControl ( null, {validators: [], updateOn: "change"})
   })
 
   constructor () {
@@ -52,6 +52,26 @@ export class FormularzComponent implements OnInit, OnDestroy {
     this.forma.controls.nazwisko.setValue('Kowalsky');
   }
 
+  wyslijFormularz():void {
+    const wartosciFormy = this.forma.value;
+    //console.log(wartosciFormy.imie);
+    let wpis: Wpis = {
+      imie: wartosciFormy.imie,
+      nazwisko: wartosciFormy.nazwisko,
+      plec: wartosciFormy.plec,
+      napoje: {
+        kawa: wartosciFormy.napoje?.kawa,
+        herbata: wartosciFormy.napoje?.herbata,
+        cola: wartosciFormy.napoje?.cola,
+        kakao: wartosciFormy.napoje?.kakao,
+      },
+      komentarze: wartosciFormy.komentarze,
+      aktywnosc: wartosciFormy.aktywnosc,
+    };
+
+    console.log(wpis);
+  }
+
   ngOnInit(): void {
     console.log('po konstruktorze')
   }
@@ -61,4 +81,19 @@ export class FormularzComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
+}
+
+
+export interface Wpis {
+  imie: string | null | undefined;
+  nazwisko: string | null | undefined;
+  aktywnosc: string | null | undefined;
+  plec: null|'k'|'m'|undefined;
+  napoje: {
+    kawa: boolean  | null | undefined;
+    herbata: boolean | null| undefined;
+    kakao: boolean | null| undefined;
+    cola: boolean | null| undefined;
+  } | undefined,
+  komentarze: string | null | undefined;
 }
