@@ -70,6 +70,10 @@ export class FormularzComponent implements OnInit, OnDestroy {
     };
 
     console.log(wpis);
+
+    
+
+
   }
 
   ngOnInit(): void {

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Wpis } from './formularz/formularz.component';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,12 @@ export class DaneService {
       {miasto: 'Bialystok', temperatura: 30, zachmurzenie: 3},
       {miasto: 'Wroclaw', temperatura: 10, zachmurzenie: 1} 
     ];*/
+  }
+
+  zapiszFormularz(wpis: Wpis):Observable<any> {
+    return this.http.post<any>(
+      'https://63fb474f4e024687bf75732b.mockapi.io/api/formularz',
+      wpis);
   }
 
   konwertujZachmurzenie(stopien: number):string {
