@@ -10,7 +10,7 @@
     <input id="imieid" type="text" formControlName="imie">
     <label for="nazwiskoid">Nazwisko</label>
     <input id="nazwiskoid" type="text" formControlName="nazwisko">
-    <div *ngIf="forma.controls.nazwisko.errors">
+    <div *ngIf="forma.controls.nazwisko.errors" class="blad">
         <div *ngIf="forma.controls.nazwisko.errors['minlength']">
             nazwisko ma 
             {{forma.controls.nazwisko.errors['minlength'].actualLength}}
@@ -35,7 +35,7 @@
         <option ngValue="r">rencista</option>
     </select>
 
-    <div>Płeć</div>
+    <div class="label">Płeć</div>
     <div>
         <label for="kId">Kobieta</label>
         <input type="radio" id="kId" value="k" formControlName="plec">
@@ -43,7 +43,7 @@
         <input type="radio" id="mId" value="m" formControlName="plec">
     </div>
 
-    <div>ulubione napoje</div>
+    <div class="label">ulubione napoje</div>
     <div [formGroup]="forma.controls.napoje">
         <label for="kawaid">Kawa</label>
         <input type="checkbox" id="kawaid" formControlName="kawa">
@@ -60,7 +60,7 @@
 
     </textarea>
 
-    <input type="button" (click)="wyslijFormularz()" value="wyslij">
+    <input type="button" (click)="wyslijFormularz()" value="wyslij" class="wyslij">
 
 
 </form>
