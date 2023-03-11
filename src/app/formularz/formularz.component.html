@@ -35,11 +35,15 @@
         <option ngValue="r">rencista</option>
     </select>
 
-    <label for="kId">Kobieta</label>
-    <input type="radio" id="kId" value="k" formControlName="plec">
-    <label for="mId">Meżczyzna</label>
-    <input type="radio" id="mId" value="m" formControlName="plec">
+    <div>Płeć</div>
+    <div>
+        <label for="kId">Kobieta</label>
+        <input type="radio" id="kId" value="k" formControlName="plec">
+        <label for="mId">Meżczyzna</label>
+        <input type="radio" id="mId" value="m" formControlName="plec">
+    </div>
 
+    <div>ulubione napoje</div>
     <div [formGroup]="forma.controls.napoje">
         <label for="kawaid">Kawa</label>
         <input type="checkbox" id="kawaid" formControlName="kawa">
