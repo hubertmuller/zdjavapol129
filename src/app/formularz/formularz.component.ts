@@ -11,6 +11,8 @@ import { DaneService } from '../dane.service';
 export class FormularzComponent implements OnInit, OnDestroy {
 
   private sub: Subscription;
+  private sub2: Subscription;
+  public pracujacy = false;
 
   public forma = new FormGroup( {
     imie: new FormControl(
@@ -22,6 +24,10 @@ export class FormularzComponent implements OnInit, OnDestroy {
       {validators: [Validators.minLength(2), Validators.maxLength(10)], updateOn: "change"}
     ),
     aktywnosc: new FormControl(
+      null,
+      {validators: [], updateOn: "change"}
+    ),
+    staz: new FormControl(
       null,
       {validators: [], updateOn: "change"}
     ),
@@ -38,6 +44,7 @@ export class FormularzComponent implements OnInit, OnDestroy {
     komentarze: new FormControl ( null, {validators: [], updateOn: "change"})
   })
   
+  
 
   constructor (private daneService: DaneService) {
     this.sub = this.forma.controls.imie.valueChanges.subscribe( 
@@ -45,6 +52,18 @@ export class FormularzComponent implements OnInit, OnDestroy {
         console.log('f strzalk sub wartosc= '+wartosc);
         if (wartosc == 'Hubert') {
           this.forma.controls.nazwisko.setValue('Muller');
+        }
+      }
+    )
+
+    this.sub2 = this.forma.controls.aktywnosc.valueChanges.subscribe(
+      (wartosc) => {
+        if (wartosc == 'p') {
+          this.pracujacy = true;
+        } else {
+          this.pracujacy = false;
+          //zerowac staz pracy
+          this.forma.controls.staz.setValue(null);
         }
       }
     )

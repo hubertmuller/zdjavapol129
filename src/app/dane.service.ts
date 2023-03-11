@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Wpis } from './formularz/formularz.component';
+import { env } from 'src/env';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class DaneService {
   pobierzPogode(): Observable<DanePogodowe[]> {
     console.log('wywolano mtode pobierz pogode');
     return this.http.get<DanePogodowe[]>(
-      'https://63fb474f4e024687bf75732b.mockapi.io/api/pogoda/miasta'
+      env.apiUrl + 'api/pogoda/miasta'
       );
     /*return [ 
       {miasto: 'Krakow', temperatura: 30, zachmurzenie: 3},
@@ -29,7 +30,7 @@ export class DaneService {
 
   zapiszFormularz(wpis: Wpis):Observable<any> {
     return this.http.post<any>(
-      'https://63fb474f4e024687bf75732b.mockapi.io/api/pogoda/formularz',
+      env.apiUrl + 'api/pogoda/formularz',
       wpis);
   }
 

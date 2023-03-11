@@ -35,6 +35,9 @@
         <option ngValue="r">rencista</option>
     </select>
 
+    <label *ngIf="pracujacy" for="stazId">Staż pracy</label>
+    <input *ngIf="pracujacy" id="stazid" type="text" formControlName="staz">
+
     <div class="label">Płeć</div>
     <div>
         <label for="kId">Kobieta</label>

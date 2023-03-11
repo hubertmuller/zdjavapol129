@@ -3,3 +3,7 @@
 <app-nawigacja></app-nawigacja>
 
 <router-outlet></router-outlet>
+
+<div>
+    Wersja <span *ngIf="prod">produkcyjna</span><span *ngIf="!prod">lokalna</span>
+</div>
