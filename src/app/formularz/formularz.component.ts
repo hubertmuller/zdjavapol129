@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { DaneService } from '../dane.service';
 
 @Component({
   selector: 'app-formularz',
@@ -36,8 +37,9 @@ export class FormularzComponent implements OnInit, OnDestroy {
     }),
     komentarze: new FormControl ( null, {validators: [], updateOn: "change"})
   })
+  
 
-  constructor () {
+  constructor (private daneService: DaneService) {
     this.sub = this.forma.controls.imie.valueChanges.subscribe( 
       (wartosc) => {
         console.log('f strzalk sub wartosc= '+wartosc);
@@ -71,6 +73,14 @@ export class FormularzComponent implements OnInit, OnDestroy {
 
     console.log(wpis);
 
+    this.daneService.zapiszFormularz(wpis).subscribe(
+      (_dane) => {
+        console.log('sukces');
+      },
+      () => {
+        console.log('dane wyslano ale nie otrzyzmano odpowiedzi - prawdopodobnie adres nei istenieje lub jest wylaczony');
+      }
+    );
     
 
 
