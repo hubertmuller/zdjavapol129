@@ -19,6 +19,21 @@ export class FormularzComponent implements OnInit, OnDestroy {
     nazwisko: new FormControl(
       "Nowak", 
       {validators: [Validators.minLength(2), Validators.maxLength(10)], updateOn: "change"}
+    ),
+    aktywnosc: new FormControl(
+      null,
+      {validators: [], updateOn: "change"}
+    ),
+    plec: new FormControl(
+      null,
+      {validators: [], updateOn: "change"}
+    ),
+    napoje: new FormGroup( {
+      kawa: new FormControl(false, {validators: [], updateOn: "change"}),
+      herbata: new FormControl(false, {validators: [], updateOn: "change"}),
+      cola: new FormControl(false, {validators: [], updateOn: "change"}),
+      kakao: new FormControl(false, {validators: [], updateOn: "change"})
+    }
     )
   })
 

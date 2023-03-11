@@ -26,6 +26,32 @@
             znakow
         </div>
     </div>
+
+    <label for="aktywnoscId">Typ aktywności zawodowej</label>
+    <select id="aktywnoscId" formControlName="aktywnosc">
+        <option [ngValue]="null">nie pracuje</option>
+        <option ngValue="p">pracujący</option>
+        <option ngValue="e">emeryt</option>
+        <option ngValue="r">rencista</option>
+    </select>
+
+    <label for="kId">Kobieta</label>
+    <input type="radio" id="kId" value="k" formControlName="plec">
+    <label for="mId">Meżczyzna</label>
+    <input type="radio" id="mId" value="m" formControlName="plec">
+
+    <div [formGroup]="forma.controls.napoje">
+        <label for="kawaid">Kawa</label>
+        <input type="checkbox" id="kawaid" formControlName="kawa">
+        <label for="herbataid">Herbata</label>
+        <input type="checkbox" id="herbataid" formControlName="herbata">
+        <label for="kakaoid">Kakao</label>
+        <input type="checkbox" id="kakaoid" formControlName="kakao">
+        <label for="colaid">Cola</label>
+        <input type="checkbox" id="colaid"  formControlName="cola">
+    </div>
+
+
 </form>
 
 <input type="button" (click)="zmienNazwisko()" value="Zmien Nazwisko">
