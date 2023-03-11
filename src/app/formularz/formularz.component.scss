@@ -1,8 +1,43 @@
+@import '../../scss-wspoldzielone/naglowki.scss';
+@import '../../scss-wspoldzielone/mixiny.scss';
+
+
 input.ng-invalid {
     background-color: red;
 }
 
-
-h1 {
-    color: green;
+p {
+    @include male-pismo;
 }
+
+/*h1 {
+    color: green;
+}*/
+
+/* css
+body > div {
+    color: red;
+    font-size: 16px;
+}
+
+body > div > span {
+    color: blue;
+}
+
+body > div > span span {
+    color: yellow;
+}
+*/
+
+/*sass*/
+body > div {
+    color: red;
+    font-size: 16px;
+    > span {
+        color:blue;
+        span {
+            color: yellow;
+        }
+    }
+}
+

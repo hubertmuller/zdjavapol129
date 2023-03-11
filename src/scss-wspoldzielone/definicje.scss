@@ -1,0 +1,11 @@
+$niebieski-tytulowy: rgb(59, 98, 255);
+$jasny-niebieski: scale-color($niebieski-tytulowy, $lightness: +15%);
+$ciemny-niebieski: mix($niebieski-tytulowy, #000, 50%);
+$bazowa-fodzina-fontow: "Arial", sans-serif;
+$bazowy-margines: 15px;
+$margines-dla-tabeli: liczmargines(3);
+
+@function liczmargines($dzielnik) {
+    @return calc($bazowy-margines / $dzielnik) + 1;
+}
+

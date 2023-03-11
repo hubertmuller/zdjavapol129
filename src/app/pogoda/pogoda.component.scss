@@ -1,3 +1,7 @@
+@import '../../scss-wspoldzielone/naglowki.scss';
+@import '../../scss-wspoldzielone/mixiny.scss';
+@import '../../scss-wspoldzielone/definicje.scss';
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -5,10 +9,20 @@ table {
 
 table, td, th {
     border: 1px solid black;
+    @include male-pismo;
 }
 
+th {
+    color: $niebieski-tytulowy;
+    font-family: $bazowa-fodzina-fontow;
+}
 
+td, th {
+    padding: liczmargines(3);
+}
+
+/*
 h1 {
     font-size: 16px;
     color: red;
-}
+}*/
